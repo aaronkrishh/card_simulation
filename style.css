@@ -1,0 +1,136 @@
+
+/*no overflowing of pixels are taken and fits within border*/
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+
+body{
+	background-color: grey;
+	background-size: 100%;
+}
+
+.container{
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	
+
+}
+
+/*takes of 2 rows within the grid format and 100% of the rows width*/
+.distinct-suit{
+	grid-row: span 2;
+	width: 	100%;
+	aspect-ratio: 1 / 1;
+	 
+
+}
+
+/*placements of the suits for each value*/
+[data-value="2"] .distinct-suit:first-child{
+	grid-row-start: 1;
+	grid-column-start:2 ;
+}
+
+[data-value="2"] .distinct-suit:nth-child(2){
+	grid-row-start: 7;
+	grid-column-start:2;
+}
+
+[data-value="2"] .distinct-suit:nth-child(3){
+	grid-row-start: 4;
+	grid-column-start:2;
+}
+
+
+/*the dimesions of the card (CHANGE TO REM LATER)*/
+.card{
+	width: 100px;
+	height: 140px;
+	background-color: white;	
+	border:  1px solid black;
+	border-radius: .4em;
+	padding: 15px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows:repeat(7, 1fr) ;
+	position: relative;  
+	}
+
+[data-suit="heart"] .distinct-suit,
+[data-suit="diamond"] .distinct-suit{
+	color: green;	
+	 
+}
+
+/*inserts heart image and properties to fit within grid*/
+[data-suit="heart"] .distinct-suit{
+	background-image: url("imgs/heart.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+
+}
+
+[data-suit="clubs"] .distinct-suit,
+[data-suit="spades"] .distinct-suit{
+	color: black;
+	width: 15px;
+	height: 15px;
+}
+
+
+/*aligns the postion of the number realtive to the card*/
+.corner{
+	position: absolute;
+	justify-content: center;
+	flex-direction: column;
+}
+
+/*formats the card number and adds top left for alignment, also allows the content to show in
+in a column format*/
+.top-number{
+	
+	left: 5px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+.bottom-number{
+	bottom: 0px;
+	right: 5px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	transform: rotate(180deg);
+}
+
+.suit-top{
+	top: 17px;
+	left: 5px;
+	background-image: url("imgs/heart.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 7px;
+	height: 7px;
+}
+.suit-bottom{
+	bottom: 17px;
+	right: 5px;
+	background-image: url("imgs/heart.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 7px;
+	height: 7px;
+	transform: rotate(180deg);
+}
+
+
+
+
+
+
